@@ -6,7 +6,9 @@
     --text-color: #FFF8E1;
     --card-bg: rgba(255, 248, 225, 0.95);
 }
-
+html{
+    scroll-behavior: smooth;
+}
 /* EXACT FONTS FROM POSTER - FROM ASSETS FOLDER */
 @font-face {
     font-family: 'Milestone Script';
