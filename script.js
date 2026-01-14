@@ -7,7 +7,7 @@ const products = {
     cupidreels: {
         title: "CUPID REELS",
         price: 'Just at ₹19/-',
-        description: "*Customizable to any pic\n\n• 350 GSM\n• ANTI-FADE\n• GLOSSY FINISH\n• SPLASH PROOF\n\nClassic photo strips for your best memories. Perfect Valentine's gift!"
+        description: "*Customizable to any pic\n\n3-4 pictures of yours in a reel format!\n\n• 350 GSM\n• ANTI-FADE\n• GLOSSY FINISH\n• SPLASH PROOF\n\nClassic photo strips for your best memories. Perfect Valentine's gift!"
     }
 };
 

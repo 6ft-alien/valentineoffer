@@ -130,11 +130,11 @@ header {
 }
 
 .logo-svg {
-    width: 120px;
+    width: 70px;
     height: auto;
     position: absolute;
     top: 50%;
-    right: 2rem;
+    right: 1rem;
     transform: translateY(-50%);
 }
 
@@ -444,8 +444,13 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .logo-svg {
+        width: 55px;
+        right: 0.5rem;
+    }
+
     .brand {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .valentine-title {
