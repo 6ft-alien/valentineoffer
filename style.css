@@ -1,0 +1,475 @@
+:root {
+    --primary-color: #C62828;
+    --secondary-color: #FFF8E1;
+    --accent-color: #B71C1C;
+    --bg-color: #C62828;
+    --text-color: #FFF8E1;
+    --card-bg: rgba(255, 248, 225, 0.95);
+}
+
+/* EXACT FONTS FROM POSTER - FROM ASSETS FOLDER */
+@font-face {
+    font-family: 'Milestone Script';
+    src: url('assets/MilestoneFreeVersion-Script.otf');
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Norwester';
+    src: url('assets/norwester.regular.otf');
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'TT Chocolates';
+    src: url('assets/TT Chocolates Trial Regular.otf');
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Schabo Condensed';
+    src: url(assets/SCHABO-Condensed.otf);
+    font-display: block;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'TT Chocolates', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+}
+
+/* Valentine Background */
+.diwali-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* TYPOGRAPHY - EXACT POSTER FONTS */
+.brand {
+    font-family: 'Norwester', sans-serif;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.norwester-text,
+button,
+.product-name,
+.product-price,
+.delivery-badge,
+.features-list li,
+.gallery-title {
+    font-family: 'Norwester', sans-serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.valentine-title,
+.sale-text {
+    font-family: 'Milestone Script', cursive;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.customizable-text,
+small {
+    font-family: 'TT Chocolates', Arial, sans-serif;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+#product-description {
+    font-family: 'TT Chocolates', Arial, sans-serif;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #333;
+}
+
+/* Import Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+/* Header - Sticky with Glass Effect */
+header {
+    background: rgba(198, 40, 40, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.logo-svg {
+    width: 120px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+}
+
+.brand {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2rem;
+    position: relative;
+}
+
+.hero {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.valentine-title {
+    font-size: 7rem;
+    color: var(--secondary-color);
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    margin: 0;
+    line-height: 0.9;
+}
+
+.sale-text {
+    font-size: 4.5rem;
+    color: var(--secondary-color);
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+}
+
+.delivery-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    margin: 1rem 0 2rem 0;
+    font-size: 0.9rem;
+}
+
+/* Product Cards */
+.products-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    perspective: 1000px;
+}
+
+.product-card {
+    background: white;
+    padding: 1.5rem;
+    width: 280px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.product-card:first-child {
+    transform: rotate(-8deg);
+}
+
+.product-card:last-child {
+    transform: rotate(8deg);
+}
+
+.product-card:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    background: #f0f0f0;
+    margin-bottom: 1rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-name {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.customizable-tagline {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1.25rem;
+    color: white;
+    font-style: italic;
+}
+
+.catchy-tagline {
+    text-align: center;
+    font-family: 'TT Chocolates', sans-serif;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin: 2rem 0 1rem 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Features List */
+.features-list {
+    max-width: 500px;
+    margin: 3rem auto;
+    text-align: left;
+}
+
+.features-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 0.3rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.features-list li:before {
+    content: '❤';
+    position: absolute;
+    left: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Product Details */
+#product-details {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 0;
+    color: var(--primary-color);
+}
+
+#product-details h2 {
+    font-family: 'Norwester', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-info {
+    background: transparent;
+    padding: 2rem 0;
+}
+
+.price-card {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#product-price h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+#product-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: left;
+    margin-top: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.order-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s;
+    font-family: 'Norwester', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.order-btn:hover {
+    transform: translateY(-3px);
+}
+
+.whatsapp {
+    background-color: #25D366;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.back-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    font-family: 'Norwester', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.back-btn:hover {
+    background: var(--accent-color);
+}
+
+/* Masonry Gallery */
+#gallery-section {
+    width: 100%;
+    margin: 4rem 0 2rem 0;
+    padding: 0 2rem;
+}
+
+.gallery-title {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.polaroid-gallery {
+    column-count: 4;
+    column-gap: 0.3rem;
+}
+
+.polaroid-item {
+    break-inside: avoid;
+    margin-bottom: 0.3rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.photo-container {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+}
+
+.photo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'TT Chocolates', sans-serif;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    transition: transform 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .brand {
+        font-size: 2rem;
+    }
+
+    .valentine-title {
+        font-size: 4rem;
+    }
+
+    .sale-text {
+        font-size: 3rem;
+    }
+
+    .products-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        transform: rotate(0deg) !important;
+    }
+
+    .polaroid-gallery {
+        column-count: 2;
+    }
+
+    .features-list li {
+        font-size: 1.1rem;
+    }
+}
