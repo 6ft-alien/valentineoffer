@@ -91,7 +91,6 @@ function createValentineBackground() {
 function showProduct(productId) {
     const product = products[productId];
     document.querySelector('.hero').classList.add('hidden');
-    document.getElementById('gallery-section').classList.add('hidden');
 
     const productDetails = document.getElementById('product-details');
     productDetails.classList.remove('hidden');
@@ -111,7 +110,6 @@ function showProduct(productId) {
 
 function showHome() {
     document.querySelector('.hero').classList.remove('hidden');
-    document.getElementById('gallery-section').classList.remove('hidden');
     document.getElementById('product-details').classList.add('hidden');
 
     // Scroll to top
