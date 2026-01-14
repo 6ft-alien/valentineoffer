@@ -123,22 +123,42 @@ document.addEventListener('DOMContentLoaded', () => {
     createValentineBackground();
     populateGallery();
 
-    // Wait for all fonts and images to load before hiding loading screen
+    // Hide loading screen function
+    function hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen && !loadingScreen.classList.contains('loaded')) {
+            loadingScreen.classList.add('loaded');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }
+    }
+
+    // Set maximum timeout to force hide after 3 seconds
+    const maxTimeout = setTimeout(() => {
+        hideLoadingScreen();
+    }, 3000);
+
+    // Wait for all fonts and critical images to load
     Promise.all([
         document.fonts.ready,
-        ...Array.from(document.images).map(img => {
-            if (img.complete) return Promise.resolve();
-            return new Promise(resolve => {
-                img.addEventListener('load', resolve);
-                img.addEventListener('error', resolve);
-            });
+        // Only wait for logo, not all images (gallery is lazy-loaded)
+        new Promise(resolve => {
+            const logo = document.querySelector('.logo-svg');
+            if (logo && logo.complete) {
+                resolve();
+            } else if (logo) {
+                logo.addEventListener('load', resolve);
+                logo.addEventListener('error', resolve);
+            } else {
+                resolve();
+            }
         })
     ]).then(() => {
-        // Hide loading screen with fade out
-        const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.classList.add('loaded');
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500);
+        clearTimeout(maxTimeout);
+        hideLoadingScreen();
+    }).catch(() => {
+        clearTimeout(maxTimeout);
+        hideLoadingScreen();
     });
 });
