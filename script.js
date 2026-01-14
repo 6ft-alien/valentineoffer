@@ -71,10 +71,6 @@ function showProduct(productId) {
 
         // Prevent right-click and long-press
         img.addEventListener('contextmenu', (e) => e.preventDefault());
-        img.addEventListener('touchstart', (e) => {
-            if (e.touches.length > 1) e.preventDefault();
-        });
-        img.addEventListener('touchend', (e) => e.preventDefault());
 
         // Add click handler to open modal with navigation
         img.addEventListener('click', function () {
