@@ -14,7 +14,7 @@
     <link rel="preload" href="assets/SCHABO-Condensed.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="assets/snapnsticklogo.svg" as="image">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=10">
 
     <!-- Loading screen styles -->
     <style>
@@ -146,7 +146,16 @@
         </section>
 
         <section id="product-details" class="hidden">
+            <button class="close-btn" onclick="showHome()">
+                <img src="assets/close-svgrepo-com.svg" alt="Close" style="width: 20px; height: 20px;">
+            </button>
             <h2 id="product-title"></h2>
+
+            <!-- Product Images -->
+            <div class="product-images-grid" id="product-images">
+                <!-- Populated by JS -->
+            </div>
+
             <div class="product-info">
                 <div class="price-card">
                     <div id="product-price"></div>
@@ -168,6 +177,10 @@
                         Order on Instagram
                     </a>
                 </div>
+
+                <a href="#gallery-section" class="scroll-to-gallery">
+                    👇 View More Examples in Gallery
+                </a>
             </div>
             <button class="back-btn" onclick="showHome()">← BACK TO PRODUCTS</button>
         </section>
@@ -178,6 +191,26 @@
                 <!-- Populated by JS -->
             </div>
         </section>
+
+        <!-- Image Modal with Navigation -->
+        <div class="image-modal" id="imageModal">
+            <button class="modal-nav modal-prev" id="modalPrev" onclick="navigateModal(-1)">
+                <svg viewBox="0 0 24 24" width="32" height="32">
+                    <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+            </button>
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeImageModal()">
+                    <img src="assets/close-svgrepo-com.svg" alt="Close" style="width: 24px; height: 24px;">
+                </button>
+                <img id="modalImage" src="" alt="Gallery Image">
+            </div>
+            <button class="modal-nav modal-next" id="modalNext" onclick="navigateModal(1)">
+                <svg viewBox="0 0 24 24" width="32" height="32">
+                    <path fill="currentColor" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                </svg>
+            </button>
+        </div>
     </main>
 
     <footer>
