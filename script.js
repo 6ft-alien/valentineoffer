@@ -230,6 +230,17 @@ document.addEventListener('keydown', (e) => {
 
 // Close when clicking outside
 document.addEventListener('DOMContentLoaded', () => {
+    // Prevent browser from restoring scroll position automatically
+    if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+    }
+
+    // Robustly clear hash and scroll to top
+    if (window.location.hash) {
+        window.scrollTo(0, 0);
+        history.replaceState("", document.title, window.location.pathname + window.location.search);
+    }
+
     createValentineBackground();
     populateGallery();
 

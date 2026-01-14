@@ -14,7 +14,7 @@
     <link rel="preload" href="assets/SCHABO-Condensed.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="assets/snapnsticklogo.svg" as="image">
 
-    <link rel="stylesheet" href="style.css?v=10">
+    <link rel="stylesheet" href="style.css?v=11">
 
     <!-- Loading screen styles -->
     <style>
@@ -94,10 +94,11 @@
     </div>
 
     <header>
-        <div class="logo-container">
+        <div class="logo-container" onclick="showHome()" style="cursor: pointer;">
             <div class="brand">SNAP 'N' STICK</div>
         </div>
-        <img src="assets/snapnsticklogo.svg" alt="Snap N Stick Logo" class="logo-svg">
+        <img src="assets/snapnsticklogo.svg" alt="Snap N Stick Logo" class="logo-svg" onclick="showHome()"
+            style="cursor: pointer;">
     </header>
 
     <main>
