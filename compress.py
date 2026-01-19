@@ -1,7 +1,7 @@
 from PIL import Image
 import os
-input_folder = 'c:/Users/nitya/Documents/valentineoffer/assets/gallery'
-output_folder = 'c:/Users/nitya/Documents/valentineoffer/assets/gallery_optimized'
+input_folder = 'c:/Users/nitya/Documents/valentineoffer/new'
+output_folder = 'c:/Users/nitya/Documents/valentineoffer/newc'
 os.makedirs(output_folder, exist_ok=True)
 for filename in os.listdir(input_folder):
     if filename.lower().endswith(('.jpg', '.jpeg', '.png')):
