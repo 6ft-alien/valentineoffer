@@ -84,7 +84,7 @@ function showProduct(productId) {
 
     // Update WhatsApp link
     const whatsappBtn = document.querySelector('.whatsapp');
-    whatsappBtn.href = "https://api.whatsapp.com/send?phone=919036438620&text=Hey%20SNAP!%20I%20want%20to%20order%20" +
+    whatsappBtn.href = "https://api.whatsapp.com/send?phone=919482823700&text=Hey%20SNAP!%20I%20want%20to%20order%20" +
         encodeURIComponent(product.title) + "%20from%20Valentine%20Sale";
 
     // Scroll to top
