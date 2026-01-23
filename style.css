@@ -226,17 +226,18 @@ main {
 
 /* Product Cards */
 .products-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 280px);
     justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-    perspective: 1000px;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 .product-card {
     background: white;
     padding: 1.5rem;
-    width: 280px;
+    width: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -293,6 +294,17 @@ main {
     font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+}
+
+/* Smaller font on desktop for long names */
+.product-name.desktop-small {
+    font-size: 1.6rem;
+}
+
+@media (max-width: 768px) {
+    .product-name.desktop-small {
+        font-size: 1.8rem;
+    }
 }
 
 .product-price {
@@ -785,8 +797,8 @@ footer {
     }
 
     .products-grid {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
+        max-width: 350px;
     }
 
     .product-card {
@@ -826,5 +838,157 @@ footer {
 
     #product-details h2 {
         font-size: 1.8rem;
+    }
+}/* Heart-shaped variant buttons - FOR CREAM BACKGROUND */
+.variant-option {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.variant-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.heart-button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+}
+
+.heart-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.variant-option:hover .heart-svg {
+    filter: drop-shadow(0 4px 8px rgba(210, 29, 41, 0.4));
+    transform: scale(1.05);
+}
+
+/* Heart SVG styling - RED OUTLINE ON CREAM */
+.heart-outline {
+    fill: none;
+    stroke: #d21d29;
+    stroke-width: 3;
+    transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+.heart-fill {
+    fill: #d21d29;
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Water fill animation when checked */
+.variant-option input:checked ~ .heart-button .heart-fill {
+    clip-path: inset(0 0 0 0);
+    animation: waterWave 0.6s ease-out;
+}
+
+.variant-option input:checked ~ .heart-button .heart-outline {
+    stroke: #b71c1c;
+    stroke-width: 4;
+}
+
+/* Smooth water fill effect */
+@keyframes waterWave {
+    0% {
+        clip-path: inset(100% 0 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* DARK TEXT FOR CREAM BACKGROUND */
+.variant-label {
+    color: #333;
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.variant-option input:checked ~ .variant-label {
+    color: #d21d29;
+    font-weight: bold;
+}
+
+/* Subtle glow effect when selected */
+.variant-option input:checked ~ .heart-button {
+    animation: heartGlow 2s ease-in-out infinite;
+}
+
+@keyframes heartGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 6px rgba(210, 29, 41, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 0 12px rgba(210, 29, 41, 0.8));
+    }
+}
+
+#product-variants {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(210, 29, 41, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(210, 29, 41, 0.2);
+}
+
+#product-variants h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.variants-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+#variant-warning {
+    color: #d21d29;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(210, 29, 41, 0.1);
+    border-radius: 5px;
+    animation: pulse 1s infinite;
+}
+
+/* Mobile variant adjustments */
+@media (max-width: 768px) {
+    .variants-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .heart-button {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .variant-label {
+        font-size: 0.75rem;
+    }
+    
+    #product-variants h3 {
+        font-size: 1.1rem;
     }
 }

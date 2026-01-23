@@ -34,7 +34,7 @@
     <link rel="preload" href="assets/SCHABO-Condensed.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="assets/snapnsticklogo.svg" as="image">
 
-    <link rel="stylesheet" href="style.css?v=15">
+    <link rel="stylesheet" href="style.css?v=22">
 
     <!-- Loading screen styles -->
     <style>
@@ -151,6 +151,12 @@
                     <div class="product-price">JUST @ RS. 7/-</div>
                 </div>
 
+                <div class="product-card" onclick="showProduct('heart_polaroids')">
+                    <div class="product-image" style="background-image: url('assets/heart1.jpg');"></div>
+                    <div class="product-name desktop-small">HEART POLAROIDS</div>
+                    <div class="product-price">JUST @ RS. 19/-</div>
+                </div>
+
                 <div class="product-card" onclick="showProduct('cupidreels')">
                     <div class="product-image" style="background-image: url('assets/cupidreel.jpg');"></div>
                     <div class="product-name">CUPID REELS</div>
@@ -193,6 +199,15 @@
             <!-- Product Images -->
             <div class="product-images-grid" id="product-images">
                 <!-- Populated by JS -->
+            </div>
+
+            <!-- Variants Selection - Moved here after images -->
+            <div id="product-variants" class="hidden">
+                <h3>Select Style:</h3>
+                <div class="variants-grid">
+                    <!-- Populated by JS -->
+                </div>
+                <p id="variant-warning" class="hidden">⚠️ Please select a style first!</p>
             </div>
 
             <div class="product-info">
